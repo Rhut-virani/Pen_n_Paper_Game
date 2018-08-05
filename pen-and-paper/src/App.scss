@@ -1,0 +1,421 @@
+// $Color1: #FC5632;
+// $Color2: #0F7EFF;
+// $Color3: #34DC42;
+// $Color4: #D16FF5;
+// $Color5: #E9E847;
+// $Color6: #FF0074;
+
+$Color1: #ff0080;
+$Color2: #35e2f2;
+$Color3: #34DC42;
+$Color4: #8c13fb;
+$Color5: #f6df0e;
+$Color6: #ff47c1;
+$ColorDefault: #F4F4F4;
+
+body {
+    background-color: #F4F4F4;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+.reset-button{
+  position: absolute;
+  top: 3%;
+  left: 9%;
+}
+.reset-button button{
+  font-size:1.5rem
+}
+.App {
+    text-align: center; 
+}
+.form-div{
+  height: 80vh;
+  width: 100vw;
+}
+.form-div h1{
+  position: absolute;
+  top: 25%;
+  left: 35%;
+}
+form{
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  font-size: 1.5rem;
+}
+%selection{
+  position: absolute;
+  top: 50%;
+  width: 20%;
+  height: auto;
+  outline: none;
+}
+.selection1{
+  @extend %selection;
+  left: 10%;
+}
+.selection2{
+  @extend %selection;
+  right: 10%;
+}
+.playbutton{
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1% 5%;
+  font-size: 1.5rem;
+}
+%sharedBorder {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+  }
+
+  .bltb {
+    @extend %sharedBorder;
+    border-left: 4px solid $ColorDefault;
+    border-top: 4px solid $ColorDefault;
+  }
+
+  .ball {
+    @extend %sharedBorder;
+    border: 4px solid $ColorDefault;
+  }
+  .btrb{
+    @extend %sharedBorder;
+    border-right: 4px solid $ColorDefault;
+    border-top: 4px solid $ColorDefault;
+    border-left: 4px solid $ColorDefault;
+  }
+  .blbb{
+    @extend %sharedBorder;
+    border-top: 4px solid $ColorDefault;
+    border-bottom: 4px solid $ColorDefault;
+    border-left: 4px solid $ColorDefault;
+  }
+  
+  .singularBox{
+    background-color: $ColorDefault;
+    height: 70px;
+    width: 70px; 
+    display: inline-block;
+    position: relative;
+  }
+  
+  .container {
+    height: 700px;
+    width: 700px; 
+    background-color: #F4F4F4;
+    padding: 0;
+    margin: 1em auto;
+    line-height: 0;
+  }
+  
+  .rotate-button{
+    transform: rotate(90deg);
+  }
+  
+  .left-button{
+    float: left;
+    border: none;
+    position: absolute;
+    margin: 0;
+    left: -26px;
+    top:28px;
+    height:10px;
+    width: 50px;
+    opacity: 0;
+  }
+
+.left-button:hover{
+    background-color: green;
+      
+      opacity:1;
+      border-radius: 25%;
+  }
+
+.top-button:hover{
+    background-color: green;
+    opacity:1;
+    border-radius: 25%;
+}  
+
+.right-button:hover{
+    background-color: green;
+    
+    opacity:1;
+    border-radius: 25%;
+}  
+
+.bottom-button:hover{
+    background-color: green;
+    
+    opacity:1;
+    border-radius: 25%;
+}
+  
+  .top-button{
+    float: top;
+    border: none;
+    position: absolute;
+    margin: 0;
+    left: 9px;
+    top: -7px;
+    height:10px;
+    width: 50px;
+    opacity: 0;
+  }
+  .right-button{
+    float: top;
+    border: none;
+    position: absolute;
+    margin: 0;
+    right: -27px;
+    bottom: 29px;
+    height:10px;
+    width:50px;
+    opacity: 0;
+  }
+  .bottom-button{
+    float: top;
+    border: none;
+    position: absolute;
+    margin: 0;
+    right: 8px;
+    bottom: -6px;
+    height:10px;
+    width:50px;
+    opacity: 0;
+  }
+  
+
+  .dot {
+    background: #2F2F2F;
+    height: 0.5em;
+    width: 0.5em;
+    border-radius: 50%;
+    margin: 0;
+    position: absolute;
+    top: -5px;
+    left: -5px;
+  }
+
+  .dotRight {
+    background: #2F2F2F;
+    height: 0.5em;
+    width: 0.5em;
+    border-radius: 50%;
+    margin: 0;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+  }
+
+  .dotBottom {
+    background: #2F2F2F;
+    height: 0.5em;
+    width: 0.5em;
+    border-radius: 50%;
+    margin: 0;
+    position: absolute;
+    bottom: -5px;
+    left: -5px;
+  }
+
+  .dotHund {
+    background: #2F2F2F;
+    height: 0.5em;
+    width: 0.5em;
+    border-radius: 50%;
+    margin: 0;
+    position: absolute;
+    bottom: -5px;
+    right: -5px;
+  }
+
+  // bc == Border Color based on player pref.
+  .blc1 {
+    border-left-color: $Color1
+  }
+  .brc1{
+    border-right-color: $Color1
+  }
+  .btc1 {
+    border-top-color: $Color1
+  }
+  .bbc1{
+    border-bottom-color: $Color1
+  }
+
+
+  .blc2 {
+    border-left-color: $Color2
+  }
+  .brc2{
+    border-right-color: $Color2
+  }
+  .btc2 {
+    border-top-color: $Color2
+  }
+  .bbc2{
+    border-bottom-color: $Color2
+  }
+
+  .blc3 {
+    border-left-color: $Color3
+  }
+  .brc3{
+    border-right-color: $Color3
+  }
+  .btc3 {
+    border-top-color: $Color3
+  }
+  .bbc3{
+    border-bottom-color: $Color3
+  }
+
+  .blc4 {
+    border-left-color: $Color4
+  } 
+  .brc4{
+    border-right-color: $Color4
+  }
+  .btc4 {
+    border-top-color: $Color4
+  }
+  .bbc4{
+    border-bottom-color: $Color4
+  }
+
+  .blc5 {
+    border-left-color: $Color5
+  }
+  .brc5{
+    border-right-color: $Color5
+  }
+  .btc5 {
+    border-top-color: $Color5
+  }
+  .bbc5{
+    border-bottom-color: $Color5
+  }
+  .blc6 {
+    border-left-color: $Color6
+  }
+  .brc6{
+    border-right-color: $Color6
+  }
+  .btc6 {
+    border-top-color: $Color6
+  }
+  .bbc6{
+    border-bottom-color: $Color6
+  }
+
+    // bx == Box Color based on player pref.
+    .bx1 {
+      background-color: $Color1
+    }
+  
+    .bx2 {
+      background-color: $Color2
+    }
+  
+    .bx3 {
+      background-color: $Color3
+    }
+  
+    .bx4 {
+      background-color: $Color4
+    } 
+  
+    .bx5 {
+      background-color: $Color5
+    }
+    .bx6 {
+      background-color: $Color6
+    }
+
+.scoreboardMain{
+  position: absolute;
+  top: 50%;
+  left: 3%;
+  transform: translateY(-50%);
+  height: 300px;
+  width: 275px;
+}
+%scoretemplet{
+  width: 100%;
+  height: 50%;
+  margin: 5%;
+  box-shadow: 6px 12px 24px 1px #2f2f2f96; 
+  overflow: hidden; 
+}
+.scoreboard1{
+  @extend %scoretemplet;
+  background-color: $Color1;
+}
+.scoreboard2{
+  @extend %scoretemplet;
+  background-color: $Color2;
+}
+.scoreboard3{
+  @extend %scoretemplet;
+  background-color: $Color3;
+}
+.scoreboard4{
+  @extend %scoretemplet;
+  background-color: $Color4;
+}
+.scoreboard5{
+  @extend %scoretemplet;
+  background-color: $Color5;
+}
+.scoreboard6{
+  @extend %scoretemplet;
+  background-color: $Color6;
+}
+.scoreboardMain h3, .timer h3{
+  left: 50%;
+  top: 50%;
+  transform: translate(-6%, -50%);
+  position: relative;
+  color: $ColorDefault;
+  font-size: 4rem;
+}
+
+%timer{
+  position: absolute;
+  top: 50%;
+  right: 3%;
+  transform: translateY(-50%);
+  height: 300px;
+  width: 275px;
+  box-shadow: 6px 12px 24px 1px #2f2f2f96;
+}
+
+.timer1{
+  @extend %timer;
+  background-color: $Color1;
+}
+.timer2{
+  @extend %timer;
+  background-color: $Color2;
+}
+.timer3{
+  @extend %timer;
+  background-color: $Color3;
+}
+.timer4{
+  @extend %timer;
+  background-color: $Color4;
+}
+.timer5{
+  @extend %timer;
+  background-color: $Color5;
+}
+.timer6{
+  @extend %timer;
+  background-color: $Color6;
+}
