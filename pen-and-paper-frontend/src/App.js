@@ -100,6 +100,7 @@ class App extends Component {
   }
   winnerfunction=(id)=>{
     let copy = Array.from(this.state.box);
+    console.log(copy);
     let newcopy = copy.map((element, index)=>{
         if(index === id) {
           element.winnercolor = !!(element.winnercolor === '')? this.state.previousplayer : element.winnercolor;
