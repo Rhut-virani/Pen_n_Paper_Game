@@ -5,6 +5,9 @@ import Countdown from 'react-countdown-now';
 const axios = require('axios');
 
 
+let baseUrl = window.location.hostname.includes('localhost') ? ("http://localhost:8080") : '';
+
+
 class App extends Component {
   //creat state that starts with a counter of 1
   constructor(){
@@ -56,7 +59,8 @@ class App extends Component {
   }
   //function if current counter is either Even or Odd, players choosen color will be that border color
   componentDidMount(){
-    axios.get('http://localhost:8080/')
+    let url = baseUrl + '/';
+    axios.get(url)
     // axios.get('/')
          .then(results =>{
           //  console.log(results.data);
@@ -64,7 +68,6 @@ class App extends Component {
               box: results.data,
             })
            console.log(results.data);
-            
          })
          .catch(error =>{
            console.log(error);
