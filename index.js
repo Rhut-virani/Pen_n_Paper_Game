@@ -63,7 +63,7 @@ for (i=0 ; i<=100; i++){
         }
 }
 
-app.get('/', (req,res)=>{
+app.get('/boxdata', (req,res)=>{
     res.send(boxdata);
 })
 
