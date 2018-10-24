@@ -67,6 +67,11 @@ app.get('/', (req,res)=>{
     res.send(boxdata);
 })
 
+app.get('*', (req, res) => {
+    res.sendFile('index.html',{root: __dirname + '/pen-and-paper-frontend/build'});
+  });
+
+
 // making sure the server is listening
 app.listen(PORT, ()=>{
     console.log('server running on' + PORT);
