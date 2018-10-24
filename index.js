@@ -17,8 +17,9 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(express.static('./pen-and-paper-frontend/build'));
-app.use('/static_assets', express.static('./pen-and-paper-frontend/static_assets'));
+// app.use(express.static('./pen-and-paper-frontend/build'));
+app.use(express.static('./pen-and-paper-frontend/build/static'));
+// app.use('/static_assets', express.static('./pen-and-paper-frontend/build/static'));
 
 let boxdata = [];
 

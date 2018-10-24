@@ -57,6 +57,7 @@ class App extends Component {
   //function if current counter is either Even or Odd, players choosen color will be that border color
   componentDidMount(){
     axios.get('http://localhost:8080/')
+    // axios.get('/')
          .then(results =>{
           //  console.log(results.data);
             this.setState({
