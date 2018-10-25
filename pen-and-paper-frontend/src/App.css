@@ -506,6 +506,11 @@ form {
   
   .bx6 {
     background-color: #ff47c1; }
+
+  .left-button:hover, .bottom-button:hover, .top-button:hover, .right-button:hover {
+    opacity: 0;
+  }
+  
   .top-button {
     float: top;
     border: none;
