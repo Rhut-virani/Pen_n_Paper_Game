@@ -119,14 +119,25 @@ class App extends Component {
   render() {
   // checking if the players have selected the colors or not
   // if yes checking again that both selected colors are not same
-      if(!localStorage.getItem('player1') && !localStorage.getItem('player2') || (localStorage.getItem('player1') === localStorage.getItem('player2'))){
+    // if (window.matchMedia("(orientation: portrait)").matches) {
+    //       return(
+    //       <div className="portraitonly">
+    //         <h1 className="portraith1">Please set the device in landscape oriantation</h1>
+    //       </div>
+    //       )
+    // }
+    // else if (window.matchMedia("(orientation: landscape)").matches) {
+        if(!localStorage.getItem('player1') && !localStorage.getItem('player2') || (localStorage.getItem('player1') === localStorage.getItem('player2'))){
         (localStorage.getItem('player1') !== null) ? window.alert("Please Select different color for each player") : console.log('it owrked') ;
         return (
             <div className="form-div animated rubberBand">
-                <h1>Select the Color of Choice For Each Player</h1>
-              <form onSubmit = {this.submit}>
+                <div className="portraitonly">
+                    <h1 className="portraith1">Please Set The Device In Landscape Mode</h1>
+                </div>
+                <h1 className="hide">Select the Color of Choice For Each Player</h1>
+                <form onSubmit = {this.submit} className="hide">
                   <div>
-                        <select ref='value1' class="custom-select selection1">
+                        <select ref='value1' className="custom-select selection1">
                             <option value="1" >Rose</option>
                             <option value="2" >Picton Blue</option>
                             <option value="3" >Malachite Green</option>
@@ -134,7 +145,7 @@ class App extends Component {
                             <option value="5" >Ripe Lemon</option>
                             <option value="6" >Razzle Dazzle Pink</option>
                         </select>
-                        <select ref='value2' class="custom-select selection2">
+                        <select ref='value2' className="custom-select selection2">
                             <option value="1" >Rose</option>
                             <option value="2" >Picton Blue</option>
                             <option value="3" >Malachite Green</option>
@@ -143,57 +154,61 @@ class App extends Component {
                             <option value="6" >Razzle Dazzle Pink</option>
                         </select>
                 </div>
-                <button class="btn btn-dark playbutton" type="submit">Play</button>
-              </form>
+                  <button className="btn btn-dark playbutton" type="submit">Play</button>
+                </form>
             </div>
         )
-    }
-      else{
-      let copy = Array.from(this.state.box);
-      let player1score = 0;
-      let player2score = 0;
-      copy.map(element=>{
-        if(element.winnercolor === this.state.player1c){
-          player1score += 1  ; 
         }
-        else if(element.winnercolor === this.state.player2c){
-          player2score += 1;
-        }
-      })
-      let score1 = 'scoreboard' + this.state.player1c;
-      let score2 = 'scoreboard' + this.state.player2c;
-      let timer = 'timer' + this.state.currentplayer;
-      
-      return (
-        <div className= 'animated slideInLeft'>
-          <div className="container shadow-lg rounded">
-            <BoxGrid turn = {this.turn} class={this.state.box} current={this.state.currentplayer} winnerfunction={this.winnerfunction}/>
+        else{
+        let copy = Array.from(this.state.box);
+        let player1score = 0;
+        let player2score = 0;
+        copy.map(element=>{
+          if(element.winnercolor === this.state.player1c){
+            player1score += 1  ; 
+          }
+          else if(element.winnercolor === this.state.player2c){
+            player2score += 1;
+          }
+        })
+        let score1 = 'scoreboard' + this.state.player1c;
+        let score2 = 'scoreboard' + this.state.player2c;
+        let timer = 'timer' + this.state.currentplayer;
+        
+        return (
+          <div className= 'animated slideInLeft'>
+            <div className="portraitonly">
+                <h1 className="portraith1">Please Set The Device In Landscape Mode</h1>
+            </div>
+            <div className="container shadow-lg rounded hide">
+              <BoxGrid turn = {this.turn} class={this.state.box} current={this.state.currentplayer} winnerfunction={this.winnerfunction}/>
+            </div>
+            <div className="reset-button hide">
+                <button className="device-change-button  btn btn-success" onClick={this.resetGame}>Reset Game</button>
+            </div>
+            <div className= 'scoreboardMain hide'>
+            <div className={score1}>
+              <h3>{player1score}</h3>
+            </div>
+            <div className={score2}>
+              <h3>{player2score}</h3>
+            </div>
           </div>
-          <div className="reset-button">
-              <button className="device-change-button  btn btn-success" onClick={this.resetGame}>Reset Game</button>
-          </div>
-          <div className= 'scoreboardMain'>
-          <div className={score1}>
-            <h3>{player1score}</h3>
-          </div>
-          <div className={score2}>
-            <h3>{player2score}</h3>
+          <div className= 'timer hide'>
+            <div className= {timer}>
+              <h3>  <Countdown
+                          date={this.state.date}
+                          intervalDelay={0}
+                          renderer={props => <div>{props.total/1000-1}</div>}
+                          onTick={(props)=>{this.onTick(props.total/1000)}}
+                        />
+              </h3>
+            </div>
           </div>
         </div>
-        <div className= 'timer'>
-          <div className= {timer}>
-            <h3>  <Countdown
-                        date={this.state.date}
-                        intervalDelay={0}
-                        renderer={props => <div>{props.total/1000-1}</div>}
-                        onTick={(props)=>{this.onTick(props.total/1000)}}
-                      />
-            </h3>
-          </div>
-        </div>
-      </div>
-        );
-  }
+          );
+      }
+    // }
 }
 }
 
