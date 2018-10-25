@@ -411,6 +411,12 @@ form {
         75%  {background: #34DC42;}
         100% {background: #8c13fb;}
    }
+   .portraitonly{
+    display: none;
+    }
+    .portraith1{
+      display: none;
+    }
 
 @media (hover: none) { 
   .left-button:hover, .bottom-button:hover, .top-button:hover, .right-button:hover {
@@ -630,14 +636,12 @@ form {
   transform: translateY(-50%);
   height: 40vh;
   width: 16vw;
-  box-shadow: 6px 12px 24px 1px #2f2f2f96; }
+  box-shadow: 6px 12px 24px 1px #2f2f2f96; 
 }
 
-.portraitonly{
-display: none;
-}
-.portraith1{
-  display: none;
+  .winningh1{
+    font-size: 2rem;
+  }
 }
 }
 @media (orientation: portrait) {
@@ -651,7 +655,6 @@ display: none;
   .portraitonly{
     height:100vh;
     width:100vw;
-    /* background-color: #F4F4F4; */
   }
   .portraith1{
     font-size: 2rem;
@@ -659,8 +662,43 @@ display: none;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
+
   }
   .portraitonly{
+    -webkit-animation: bgcolorchange 50s infinite; /* Chrome, Safari, Opera */ 
+    animation: 50s infinite bgcolorchange;
+  }
+  @keyframes bgcolorchange {
+    0% {
+      background-color: #ff0080;
+    }
+    25% {
+      background-color: #35e2f2;
+    }
+    50% {
+      background-color: #34DC42;
+    }
+    75% {
+      background-color: #8c13fb;
+    }
+    100% {
+      background-color: #f6df0e;
+    }
+  }
+  /* Chrome, Safari, Opera */
+   @-webkit-keyframes bgcolorchange {
+        0%   {background: #ff0080;}
+        25%  {background: #35e2f2;}
+        75%  {background: #34DC42;}
+        100% {background: #8c13fb;}
+   }
+
+   .winningonly{
+    height:100vh;
+    width:100vw;
+  }
+   .winningonly{
     -webkit-animation: bgcolorchange 50s infinite; /* Chrome, Safari, Opera */ 
     animation: 50s infinite bgcolorchange;
   }

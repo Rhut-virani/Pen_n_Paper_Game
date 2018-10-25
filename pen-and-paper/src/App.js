@@ -140,7 +140,7 @@ class App extends Component {
                 <div className="portraitonly">
                     <h1 className="portraith1">Please Set The Device In Landscape Mode</h1>
                 </div>
-                <h1 className="hide">Select the Color of Choice For Each Player</h1>
+                <h1 className="hide">Select Color of Choice For Each Player</h1>
                 <form onSubmit = {this.submit} className="hide">
                   <div>
                         <select ref='value1' className="custom-select selection1">
@@ -204,7 +204,8 @@ class App extends Component {
               <div className="reset-button hide">
                 <button className="device-change-button  btn btn-success" onClick={this.resetGame}>Reset Game</button>
               </div>
-              <h1 className="winningh1 animated zoomInDown">{player} has Won the game</h1>
+              <h1 className="winningh1 animated zoomInDown hide">{player} has Won the game</h1>
+              <h1 className="portraith1">Please Set The Device In Landscape Mode</h1>
             </div>
           )
         }
