@@ -168,7 +168,8 @@ class App extends Component {
         else if(!localStorage.getItem('instructions')){
           return(
           <div className="winningonly">
-            <h1 className="instructionsh1 animated fadeIn">Join the dots by clicking between 2 dots. <br/> <br/> Player to close the sqaure on its chance gets the square and 1 point.<br/><br/>Player to score 25 first wins the game</h1>
+            <h1 className="portraith1">Please Set The Device In Landscape Mode</h1>
+            <h1 className="instructionsh1 animated fadeIn hide">Join the dots by clicking between 2 dots. <br/> <br/> Player to close the sqaure on its chance gets the square and 1 point.<br/><br/>Player to score 25 first wins the game<br/></h1>
             <form onSubmit = {this.read} className="hide animated fadeIn">
               <button className="btn btn-dark playbutton" type="submit">Play</button>
             </form>
