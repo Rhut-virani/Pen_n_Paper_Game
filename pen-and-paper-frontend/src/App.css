@@ -24,6 +24,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  text-align: center;
 }
 
 form {
@@ -663,6 +664,7 @@ form {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-align: center;
   }
   .portraitonly{
     -webkit-animation: bgcolorchange 50s infinite; /* Chrome, Safari, Opera */ 
