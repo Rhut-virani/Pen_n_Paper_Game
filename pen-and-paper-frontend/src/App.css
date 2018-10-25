@@ -689,4 +689,36 @@ display: none;
         75%  {background: #34DC42;}
         100% {background: #8c13fb;}
    }
+   .winningonly{
+    height:100vh;
+    width:100vw;
+  }
+   .winningonly{
+    -webkit-animation: bgcolorchange 50s infinite; /* Chrome, Safari, Opera */ 
+    animation: 50s infinite bgcolorchange;
+  }
+  @keyframes bgcolorchange {
+    0% {
+      background-color: #ff0080;
+    }
+    25% {
+      background-color: #35e2f2;
+    }
+    50% {
+      background-color: #34DC42;
+    }
+    75% {
+      background-color: #8c13fb;
+    }
+    100% {
+      background-color: #f6df0e;
+    }
+  }
+  /* Chrome, Safari, Opera */
+   @-webkit-keyframes bgcolorchange {
+        0%   {background: #ff0080;}
+        25%  {background: #35e2f2;}
+        75%  {background: #34DC42;}
+        100% {background: #8c13fb;}
+   }
 }

@@ -193,8 +193,8 @@ class App extends Component {
         let score1 = 'scoreboard' + this.state.player1c;
         let score2 = 'scoreboard' + this.state.player2c;
         let timer = 'timer' + this.state.currentplayer;
-        if(player1score === 51 || player2score === 51){
-          if(player1score === 51){
+        if(player1score === 25 || player2score === 25){
+          if(player1score === 25){
             player = "Player 1"
           }
           else{
@@ -206,6 +206,7 @@ class App extends Component {
                 <button className="device-change-button  btn btn-success" onClick={this.resetGame}>Reset Game</button>
               </div>
               <h1 className="winningh1 animated zoomInDown">{player} has Won the game</h1>
+              <h1 className="portraith1">Please Set The Device In Landscape Mode</h1>
             </div>
           )
         }
