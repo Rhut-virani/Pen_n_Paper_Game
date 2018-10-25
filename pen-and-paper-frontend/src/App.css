@@ -374,7 +374,7 @@ form {
   transform: translate(-50%, -50%);
 }
 .instructionsh1{
-  font-size: 2.5rem;
+  font-size: 2rem;
   position: absolute;
   top: 40%;
   left: 50%;
@@ -418,7 +418,7 @@ form {
     .portraith1{
       display: none;
     }
-    
+
 @media (hover: none) { 
     .left-button:hover, .bottom-button:hover, .top-button:hover, .right-button:hover {
       opacity: 0;
