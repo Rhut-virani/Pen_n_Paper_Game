@@ -205,7 +205,7 @@ class App extends Component {
               <div className="reset-button hide">
                 <button className="device-change-button  btn btn-success" onClick={this.resetGame}>Reset Game</button>
               </div>
-              <h1 className="winningh1 animated zoomInDown">{player} has Won the game</h1>
+              <h1 className="winningh1 animated zoomInDown hide">{player} has Won the game</h1>
               <h1 className="portraith1">Please Set The Device In Landscape Mode</h1>
             </div>
           )
