@@ -411,8 +411,14 @@ form {
       75%  {background: #34DC42;}
       100% {background: #8c13fb;}
   }
-
-
+  
+  .portraitonly{
+    display: none;
+    }
+    .portraith1{
+      display: none;
+    }
+    
 @media (hover: none) { 
     .left-button:hover, .bottom-button:hover, .top-button:hover, .right-button:hover {
       opacity: 0;
@@ -631,14 +637,11 @@ form {
   transform: translateY(-50%);
   height: 40vh;
   width: 16vw;
-  box-shadow: 6px 12px 24px 1px #2f2f2f96; }
-}
-
-.portraitonly{
-display: none;
-}
-.portraith1{
-  display: none;
+  box-shadow: 6px 12px 24px 1px #2f2f2f96; 
+  }
+  .winningh1{
+    font-size: 2rem;
+  }
 }
 }
 @media (orientation: portrait) {
