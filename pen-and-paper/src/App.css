@@ -362,9 +362,54 @@ form {
 .timer6 {
   background-color: #ff47c1; }
 
+  .winningonly{
+    height:100vh;
+    width:100vw;
+    /* background-color: #F4F4F4; */
+  }
+  .winningh1{
+    font-size: 4rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .winningonly{
+    -webkit-animation: bgcolorchange 50s infinite; /* Chrome, Safari, Opera */ 
+    animation: 50s infinite bgcolorchange;
+  }
+  @keyframes bgcolorchange {
+    0% {
+      background-color: #ff0080;
+    }
+    25% {
+      background-color: #35e2f2;
+    }
+    50% {
+      background-color: #34DC42;
+    }
+    75% {
+      background-color: #8c13fb;
+    }
+    100% {
+      background-color: #f6df0e;
+    }
+  }
+  /* Chrome, Safari, Opera */
+   @-webkit-keyframes bgcolorchange {
+        0%   {background: #ff0080;}
+        25%  {background: #35e2f2;}
+        75%  {background: #34DC42;}
+        100% {background: #8c13fb;}
+   }
+
+@media (hover: none) { 
+  .left-button:hover, .bottom-button:hover, .top-button:hover, .right-button:hover {
+    opacity: 0;
+  }
+}
 
 @media (max-width: 1282px){
-
   .form-div h1{
     font-size: 1.8rem;
   }
@@ -506,6 +551,8 @@ form {
   
   .bx6 {
     background-color: #ff47c1; }
+
+
   .top-button {
     float: top;
     border: none;

@@ -4,6 +4,8 @@ import BoxGrid from './BoxGrid';
 import Countdown from 'react-countdown-now';
 const axios = require('axios');
 
+let baseUrl = window.location.hostname.includes('localhost') ? ("http://localhost:8080") : '';
+
 
 class App extends Component {
   //creat state that starts with a counter of 1
@@ -13,6 +15,7 @@ class App extends Component {
       currentplayer: localStorage.getItem('player1'),
       player2c: localStorage.getItem('player2'),
       player1c: localStorage.getItem('player1'),
+      instructionread: localStorage.getItem('instructions'),
       date : Date.now() + 31000,
       box: [
         {
@@ -56,7 +59,9 @@ class App extends Component {
   }
   //function if current counter is either Even or Odd, players choosen color will be that border color
   componentDidMount(){
-    axios.get('http://localhost:8080/')
+    let url = baseUrl + '/boxdata';
+    axios.get(url)
+    // axios.get('http://localhost:8080/')
          .then(results =>{
           //  console.log(results.data);
             this.setState({
@@ -84,11 +89,21 @@ class App extends Component {
     })
   }
 
+  read = (e) =>{
+    console.log("read button hit")
+    e.preventDefault();
+    localStorage.setItem('instructions', "read");
+    this.setState({
+      instructionread: localStorage.getItem('instructions'),
+      date : Date.now() + 31000,
+    })
+  }
   // function will allow player to manually reset the game and clear all the clicks 
   // also it resets the local storage so users can select new colors 
   resetGame = ()=>{
     localStorage.removeItem('player1');
     localStorage.removeItem('player2');
+    localStorage.removeItem('instructions');
     this.setState({
       player: this.state.player,
     })
@@ -119,18 +134,10 @@ class App extends Component {
   render() {
   // checking if the players have selected the colors or not
   // if yes checking again that both selected colors are not same
-    // if (window.matchMedia("(orientation: portrait)").matches) {
-    //       return(
-    //       <div className="portraitonly">
-    //         <h1 className="portraith1">Please set the device in landscape oriantation</h1>
-    //       </div>
-    //       )
-    // }
-    // else if (window.matchMedia("(orientation: landscape)").matches) {
         if(!localStorage.getItem('player1') && !localStorage.getItem('player2') || (localStorage.getItem('player1') === localStorage.getItem('player2'))){
         (localStorage.getItem('player1') !== null) ? window.alert("Please Select different color for each player") : console.log('it owrked') ;
         return (
-            <div className="form-div animated rubberBand">
+            <div className="form-div animated pulse">
                 <div className="portraitonly">
                     <h1 className="portraith1">Please Set The Device In Landscape Mode</h1>
                 </div>
@@ -159,10 +166,21 @@ class App extends Component {
             </div>
         )
         }
+        else if(!localStorage.getItem('instructions')){
+          return(
+            <div className="winningonly">
+                <h1 className="winningh1 animated fadeIn">Player to score 25 first wins the game</h1>
+                <form onSubmit = {this.read} className="hide animated fadeIn">
+                  <button className="btn btn-dark playbutton" type="submit">Play</button>
+                </form>
+            </div>
+          )
+        }
         else{
         let copy = Array.from(this.state.box);
         let player1score = 0;
         let player2score = 0;
+        var player = " ";
         copy.map(element=>{
           if(element.winnercolor === this.state.player1c){
             player1score += 1  ; 
@@ -174,7 +192,23 @@ class App extends Component {
         let score1 = 'scoreboard' + this.state.player1c;
         let score2 = 'scoreboard' + this.state.player2c;
         let timer = 'timer' + this.state.currentplayer;
-        
+        if(player1score === 1 || player2score === 1){
+          if(player1score === 1){
+            player = "Player 1"
+          }
+          else{
+            player = "Player 2"
+          }
+          return(
+            <div className="winningonly">
+              <div className="reset-button hide">
+                <button className="device-change-button  btn btn-success" onClick={this.resetGame}>Reset Game</button>
+              </div>
+              <h1 className="winningh1 animated zoomInDown">{player} has Won the game</h1>
+            </div>
+          )
+        }
+        else{
         return (
           <div className= 'animated slideInLeft'>
             <div className="portraitonly">
@@ -208,14 +242,10 @@ class App extends Component {
         </div>
           );
       }
-    // }
+    }
 }
 }
 
 export default App;
 
 
-
-//fill box depending on which player completes it
-      //
-// starter page to set player colord in localStorage
