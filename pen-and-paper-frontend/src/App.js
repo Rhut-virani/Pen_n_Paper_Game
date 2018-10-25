@@ -103,6 +103,7 @@ class App extends Component {
   resetGame = ()=>{
     localStorage.removeItem('player1');
     localStorage.removeItem('player2');
+    localStorage.removeItem('instructions');
     this.setState({
       player: this.state.player,
     })
