@@ -159,6 +159,7 @@ class App extends Component {
         let copy = Array.from(this.state.box);
         let player1score = 0;
         let player2score = 0;
+        var player = " ";
         copy.map(element=>{
           if(element.winnercolor === this.state.player1c){
             player1score += 1  ; 
@@ -170,7 +171,20 @@ class App extends Component {
         let score1 = 'scoreboard' + this.state.player1c;
         let score2 = 'scoreboard' + this.state.player2c;
         let timer = 'timer' + this.state.currentplayer;
-        
+        if(player1score === 51 || player2score === 51){
+          if(player1score === 51){
+            player = "Player 1"
+          }
+          else{
+            player = "Player 2"
+          }
+          return(
+            <div className="winningonly">
+              <h1 className="winningh1">{player} has Won the game</h1>
+            </div>
+          )
+        }
+        else{
         return (
           <div className= 'animated slideInLeft'>
             <div className="portraitonly">
@@ -204,6 +218,7 @@ class App extends Component {
         </div>
           );
       }
+    }
 }
 }
 
