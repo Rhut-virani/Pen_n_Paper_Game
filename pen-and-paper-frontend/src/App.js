@@ -15,6 +15,7 @@ class App extends Component {
       currentplayer: localStorage.getItem('player1'),
       player2c: localStorage.getItem('player2'),
       player1c: localStorage.getItem('player1'),
+      instructionread: localStorage.getItem('instructions'),
       date : Date.now() + 31000,
       box: [
         {
@@ -87,7 +88,16 @@ class App extends Component {
       date : Date.now() + 31000,
     })
   }
-
+  // to make sure the user understands the game and winning 
+  read = (e) =>{
+    console.log("read button hit")
+    e.preventDefault();
+    localStorage.setItem('instructions', "read");
+    this.setState({
+      instructionread: localStorage.getItem('instructions'),
+      date : Date.now() + 31000,
+    })
+  }
   // function will allow player to manually reset the game and clear all the clicks 
   // also it resets the local storage so users can select new colors 
   resetGame = ()=>{
@@ -155,6 +165,16 @@ class App extends Component {
             </div>
         )
         }
+        else if(!localStorage.getItem('instructions')){
+          return(
+          <div className="winningonly">
+            <h1 className="instructionsh1 animated fadeIn">Join the dots by clicking between 2 dots. <br/> <br/> Player to close the sqaure on its chance gets the square and 1 point.<br/><br/>Player to score 25 first wins the game</h1>
+            <form onSubmit = {this.read} className="hide animated fadeIn">
+              <button className="btn btn-dark playbutton" type="submit">Play</button>
+            </form>
+          </div>
+          )
+        }
         else{
         let copy = Array.from(this.state.box);
         let player1score = 0;
@@ -180,7 +200,10 @@ class App extends Component {
           }
           return(
             <div className="winningonly">
-              <h1 className="winningh1">{player} has Won the game</h1>
+              <div className="reset-button hide">
+                <button className="device-change-button  btn btn-success" onClick={this.resetGame}>Reset Game</button>
+              </div>
+              <h1 className="winningh1 animated zoomInDown">{player} has Won the game</h1>
             </div>
           )
         }
