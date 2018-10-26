@@ -334,12 +334,7 @@ form {
   font-size: 4rem; 
   text-align: center;
 }
-/* .timer h3 {
-  width: 4vw;
-}
-.scoreboardMain h3 {
-  width: 3vw;
-} */
+
 .timer1, .timer2, .timer3, .timer4, .timer5, .timer6 {
   position: absolute;
   top: 50%;
@@ -429,7 +424,7 @@ form {
   }
 }
 
-@media (max-width: 1360px){
+@media (max-width: 1380px){
   .form-div h1{
     font-size: 1.8rem;
   }
