@@ -424,7 +424,7 @@ form {
   }
 }
 
-@media (max-width: 1380px){
+@media (max-width: 1400px){
   .form-div h1{
     font-size: 1.8rem;
   }
