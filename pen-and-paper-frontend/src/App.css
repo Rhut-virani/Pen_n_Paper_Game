@@ -7,7 +7,8 @@ body {
 .reset-button {
   position: absolute;
   top: 3%;
-  left: 9%; }
+  left: 9%; 
+}
 
 .reset-button button {
   font-size: 1.5rem; }
@@ -298,7 +299,8 @@ form {
   left: 4%;
   transform: translateY(-50%);
   height: 40vh;
-  width: 18vw; }
+  width: 18vw; 
+}
 
 .scoreboard1, .scoreboard2, .scoreboard3, .scoreboard4, .scoreboard5, .scoreboard6 {
   width: 100%;
@@ -342,7 +344,8 @@ form {
   transform: translateY(-50%);
   height: 40vh;
   width: 18vw;
-  box-shadow: 6px 12px 24px 1px #2f2f2f96; }
+  box-shadow: 6px 12px 24px 1px #2f2f2f96; 
+}
 
 .timer1 {
   background-color: #ff0080; }
@@ -418,13 +421,16 @@ form {
       display: none;
     }
 
-@media (hover: none) { 
-  .left-button:hover, .bottom-button:hover, .top-button:hover, .right-button:hover {
-    opacity: 0;
+@media (min-width: 1281px) and (max-width: 1366px){
+  .scoreboardMain {
+    left: 2%;
+  }
+  .timer1, .timer2, .timer3, .timer4, .timer5, .timer6 {
+    right: 2%;
   }
 }
 
-@media (max-width: 1400px){
+@media (max-width: 1281px){
   .form-div h1{
     font-size: 1.8rem;
   }
@@ -618,7 +624,8 @@ form {
   left: 4%;
   transform: translateY(-50%);
   height: 40vh;
-  width: 16vw; }
+  width: 16vw; 
+}
 
 .scoreboardMain h3, .timer h3 {
   left: 50%;
@@ -627,7 +634,7 @@ form {
   position: relative;
   color: #F4F4F4;
   font-size: 3rem; 
-  width: 3vw;
+  width: inherit;
 }
 .timer1, .timer2, .timer3, .timer4, .timer5, .timer6 {
   position: absolute;
@@ -643,6 +650,51 @@ form {
     font-size: 2rem;
   }
 }
+
+
+@media (max-width: 767px){
+  .timer1, .timer2, .timer3, .timer4, .timer5, .timer6 {
+    height: 30vh;
+    width: 12vw;
+    right: 3%;
+  }
+  .scoreboardMain {
+    height: 30vh;
+    width: 12vw;
+    left: 70%;
+  }
+  .reset-button{
+    left: 86%;
+  }
+  .reset-button > button{
+    padding: 5%;
+  }
+  .wrapper{
+    left: 35%;
+  }
+  .scoreboard1, .scoreboard2, .scoreboard3, .scoreboard4, .scoreboard5, .scoreboard6 {
+    height: 46%;
+    margin: 5%;
+ }
+ .scoreboardMain h3, .timer h3 {
+  font-size: 2.5rem; 
+}
+.selection1 > option, .selection2 > option, .selection1, .selection2{
+  font-size: 1rem;
+}
+.form-div h1 {
+  font-size: 1.5rem;
+}
+.instructionsh1{
+  font-size: 1.5rem;
+}
+}
+@media (hover: none) { 
+  .left-button:hover, .bottom-button:hover, .top-button:hover, .right-button:hover {
+    opacity: 0;
+  }
+}
+
 }
 @media (orientation: portrait) {
   body {
@@ -663,8 +715,8 @@ form {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-
   }
+
   .portraitonly{
     -webkit-animation: bgcolorchange 50s infinite; /* Chrome, Safari, Opera */ 
     animation: 50s infinite bgcolorchange;
