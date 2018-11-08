@@ -1,15 +1,18 @@
+html{
+  background-color: #F4F4F4;
+}
+
 @media (orientation: landscape) {
 
 body {
   background-color: #F4F4F4;
-  font-family: 'Open Sans Condensed', sans-serif; }
-
+  font-family: 'Open Sans Condensed', sans-serif; 
+}
 .reset-button {
   position: absolute;
   top: 3%;
   left: 9%; 
 }
-
 .reset-button button {
   font-size: 1.5rem; }
 
@@ -94,7 +97,9 @@ form {
   background-color: #F4F4F4;
   padding: 0;
   margin: 1em auto;
-  line-height: 0; }
+  line-height: 0; 
+}
+
 
 .rotate-button {
   transform: rotate(90deg); }
@@ -689,12 +694,18 @@ form {
   font-size: 1.5rem;
 }
 }
+
+@media (min-height : 800px) {
+  .container{
+    margin: 5% auto 0 auto;
+  }
+  
+}
 @media (hover: none) { 
   .left-button:hover, .bottom-button:hover, .top-button:hover, .right-button:hover {
     opacity: 0;
   }
 }
-
 }
 @media (orientation: portrait) {
   body {

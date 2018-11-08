@@ -88,6 +88,31 @@ class App extends Component {
       date : Date.now() + 31000,
     })
   }
+
+  click = () =>{
+    var el = document.body;
+    if(document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement || document.msFullscreenElement){
+      if(document.exitFullscreen){
+        document.exitFullscreen();
+      }else if(document.mozCancelFullScreen){
+        document.mozCancelFullScreen();
+      }else if(document.webkitExitFullscreen){
+        document.webkitExitFullscreen();
+      }else if(document.msExitFullscreen){
+        document.msExitFullscreen();
+      }
+    }else{
+      if(document.documentElement.requestFullscreen){
+        el.requestFullscreen();
+      }else if(document.documentElement.mozRequestFullScreen){
+        el.mozRequestFullScreen();
+      }else if(document.documentElement.webkitRequestFullscreen){
+        el.webkitRequestFullscreen();
+      }else if(document.documentElement.msRequestFullscreen){
+        el.msRequestFullscreen();
+      }
+  }
+  }
   read = (e) =>{
     console.log("read button hit")
     e.preventDefault();
@@ -160,7 +185,7 @@ class App extends Component {
                             <option value="6" >Razzle Dazzle Pink</option>
                         </select>
                 </div>
-                  <button className="btn btn-dark playbutton" type="submit">Play</button>
+                  <button className="btn btn-dark playbutton" onClick={this.click} type="submit">Play</button>
                 </form>
             </div>
         )
