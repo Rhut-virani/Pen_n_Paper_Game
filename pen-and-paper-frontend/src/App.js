@@ -61,9 +61,7 @@ class App extends Component {
   componentDidMount(){
     let url = baseUrl + '/boxdata';
     axios.get(url)
-    // axios.get('http://localhost:8080/')
          .then(results =>{
-          //  console.log(results.data);
             this.setState({
               box: results.data,
             })
@@ -73,7 +71,6 @@ class App extends Component {
          .catch(error =>{
            console.log(error);
          })
-    console.log(this.state.box);     
   }
   // function will set the value that players selected to local strage so that
   // and also resets it to state so the page rerenders
@@ -88,7 +85,7 @@ class App extends Component {
       date : Date.now() + 31000,
     })
   }
-
+  // function to launch the game in fullscreen//
   click = () =>{
     var el = document.body;
     if(document.fullscreenElement || document.mozFullScreenElement || document.webkitFullscreenElement || document.msFullscreenElement){
@@ -113,6 +110,7 @@ class App extends Component {
       }
   }
   }
+  // to make sure the user understands the game and winning 
   read = (e) =>{
     console.log("read button hit")
     e.preventDefault();
@@ -161,11 +159,11 @@ class App extends Component {
         if(!localStorage.getItem('player1') && !localStorage.getItem('player2') || (localStorage.getItem('player1') === localStorage.getItem('player2'))){
         (localStorage.getItem('player1') !== null) ? window.alert("Please Select different color for each player") : console.log('it owrked') ;
         return (
-            <div className="form-div animated pulse">
+            <div className="form-div animated rubberBand">
                 <div className="portraitonly">
                     <h1 className="portraith1">Please Set The Device In Landscape Mode</h1>
                 </div>
-                <h1 className="hide">Select Color of Choice For Each Player</h1>
+                <h1 className="hide">Select the Color of Choice For Each Player</h1>
                 <form onSubmit = {this.submit} className="hide">
                   <div>
                         <select ref='value1' className="custom-select selection1">
@@ -192,13 +190,13 @@ class App extends Component {
         }
         else if(!localStorage.getItem('instructions')){
           return(
-            <div className="winningonly">
-                <h1 className="portraith1">Please Set The Device In Landscape Mode</h1>
-                <h1 className="instructionsh1 animated fadeIn hide">Join the dots by clicking between 2 dots. <br/> <br/> Player to close the sqaure on its chance gets the square and 1 point.<br/><br/>Player to score 25 first wins the game<br/></h1>
-                <form onSubmit = {this.read} className="hide animated fadeIn">
-                  <button className="btn btn-dark playbutton hide" type="submit">Play</button>
-                </form>
-            </div>
+          <div className="winningonly">
+            <h1 className="portraith1">Please Set The Device In Landscape Mode</h1>
+            <h1 className="instructionsh1 animated fadeIn hide">Join the dots by clicking between 2 dots. <br/> <br/> Player to close the sqaure on its chance gets the square and 1 point.<br/><br/>Player to score 25 first wins the game<br/></h1>
+            <form onSubmit = {this.read} className="hide animated fadeIn">
+              <button className="btn btn-dark playbutton" type="submit">Play</button>
+            </form>
+          </div>
           )
         }
         else{
@@ -217,8 +215,8 @@ class App extends Component {
         let score1 = 'scoreboard' + this.state.player1c;
         let score2 = 'scoreboard' + this.state.player2c;
         let timer = 'timer' + this.state.currentplayer;
-        if(player1score === 1 || player2score === 1){
-          if(player1score === 1){
+        if(player1score === 25 || player2score === 25){
+          if(player1score === 25){
             player = "Player 1"
           }
           else{
