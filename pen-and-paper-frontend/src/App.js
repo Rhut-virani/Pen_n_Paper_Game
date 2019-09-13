@@ -159,7 +159,7 @@ class App extends Component {
         if(!localStorage.getItem('player1') && !localStorage.getItem('player2') || (localStorage.getItem('player1') === localStorage.getItem('player2'))){
         (localStorage.getItem('player1') !== null) ? window.alert("Please Select different color for each player") : console.log('it owrked') ;
         return (
-            <div className="form-div animated rubberBand">
+            <div className="form-div">
                 <div className="portraitonly">
                     <h1 className="portraith1">Please Set The Device In Landscape Mode</h1>
                 </div>

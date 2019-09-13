@@ -3,6 +3,9 @@ const express = require('express');
       request = require("request"),
       bodyParser = require('body-parser');
 
+      const PORT = process.env.PORT || 8080;
+
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 // parse application/json
@@ -13,6 +16,10 @@ app.use((req, res, next) => {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+
+// app.use(express.static('./pen-and-paper-frontend/build'));
+app.use(express.static('./pen-and-paper-frontend/build'));
+// app.use('/static_assets', express.static('./pen-and-paper-frontend/build/static'));
 
 let boxdata = [];
 
@@ -60,6 +67,12 @@ app.get('/boxdata', (req,res)=>{
     res.send(boxdata);
 })
 
-app.listen(8080, ()=>{
-    console.log('listening on 8080');
+app.get('*', (req, res) => {
+    res.sendFile('index.html',{root: __dirname + '/pen-and-paper-frontend/build'});
+  });
+
+
+// making sure the server is listening
+app.listen(PORT, ()=>{
+    console.log('server running on' + PORT);
 })
