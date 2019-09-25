@@ -22,13 +22,9 @@ A 2 player game that can be played with anyone
 
 ## Installation
 
-Use package.json to install and fork your version.
+Use package.json to install and fork your version, pull requests are welcomed.
 
 ```bash
 npm install
 ```
 
-
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
