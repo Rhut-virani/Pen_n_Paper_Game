@@ -18,7 +18,7 @@ A 2 player game that can be played with anyone
 ![pp1](https://user-images.githubusercontent.com/19146537/65627840-36479b00-df9e-11e9-9d79-76040027cf36.png)
 
 
-## Colorful easthetics
+## Colorful aesthetics
 ![pp5](https://user-images.githubusercontent.com/19146537/65627886-4b242e80-df9e-11e9-8497-1795d7b97f90.png)
 
 
