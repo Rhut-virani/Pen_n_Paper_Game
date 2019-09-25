@@ -2,7 +2,7 @@
 
 P & P is a fun and simple game I use to play a lot during my childhood. Just join the dots and make boxes of your color & enjoy.
 
-Follow the link to PLay - https://pen-paper.herokuapp.com/
+Follow the link to Play - https://pen-paper.herokuapp.com/
 
 ## Simple and Fun to play
 Easy to start and engaging gameplay
