@@ -6,6 +6,7 @@ Follow the link to Play - https://pen-paper.herokuapp.com/
 
 ## Simple and Fun to play
 Easy to start and engaging gameplay.
+
 Whoever closes the box gets the point.
 <p align="center">
   <img widht="700" height="388" src="https://user-images.githubusercontent.com/19146537/65632280-457f1680-dfa7-11e9-8752-b2a6b3ffa16c.gif">
