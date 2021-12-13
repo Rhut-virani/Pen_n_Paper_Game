@@ -87,7 +87,7 @@ export default function App() {
 			<BackgroundAnimation>
 				<Grid container item xs={12} alignItems="center" justify="center">
 					<Typography variant="h4" align="center">
-						Please Set The Device In Landscape Mode
+						Please Set The Device In Landscape
 					</Typography>
 				</Grid>
 			</BackgroundAnimation>
@@ -102,7 +102,7 @@ export default function App() {
 		);
 	} else if (!instructions) {
 		const text =
-			"Join the dots by clicking between 2 dots. \n\n Player to close the sqaure on its chance gets the square and 1 point. \n\n Player to score 25 first wins the game";
+			"Join the dots & make a line by clicking between 2 dots. \n\n Player to close the box with their line wins the box and gets 1 point. \n\n There is a timer of 30 sec, after which you lose your current chance \n\n Player to score 25 first, wins the game";
 		return (
 			<InformationScreen
 				handleClick={readInstructions}

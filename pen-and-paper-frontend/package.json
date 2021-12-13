@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-ui/core": "^4.11.0",
+    "@material-ui/core": "^4.12.3",
     "animate.css": "^3.7.2",
     "axios": "^0.18.1",
-    "react": "^16.13.1",
-    "react-countdown": "^2.2.1",
-    "react-countdown-clock": "^2.7.0",
-    "react-dom": "^16.13.1",
+    "react": "^16.14.0",
+    "react-countdown": "^2.3.2",
+    "react-countdown-clock": "^2.9.0",
+    "react-dom": "^16.14.0",
     "react-magic": "^0.2.3",
     "react-scripts": "1.1.4"
   },
