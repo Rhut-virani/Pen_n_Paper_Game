@@ -11,7 +11,7 @@
     "react-countdown-clock": "^2.9.0",
     "react-dom": "^16.14.0",
     "react-magic": "^0.2.3",
-    "react-scripts": "1.1.4"
+    "react-scripts": "5.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
